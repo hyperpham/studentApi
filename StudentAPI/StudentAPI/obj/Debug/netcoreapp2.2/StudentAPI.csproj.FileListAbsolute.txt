@@ -1,0 +1,14 @@
+E:\hieupv\StudentAPI\StudentAPI\bin\Debug\netcoreapp2.2\StudentAPI.deps.json
+E:\hieupv\StudentAPI\StudentAPI\bin\Debug\netcoreapp2.2\StudentAPI.runtimeconfig.json
+E:\hieupv\StudentAPI\StudentAPI\bin\Debug\netcoreapp2.2\StudentAPI.runtimeconfig.dev.json
+E:\hieupv\StudentAPI\StudentAPI\bin\Debug\netcoreapp2.2\StudentAPI.dll
+E:\hieupv\StudentAPI\StudentAPI\obj\Debug\netcoreapp2.2\StudentAPI.csprojAssemblyReference.cache
+E:\hieupv\StudentAPI\StudentAPI\obj\Debug\netcoreapp2.2\StudentAPI.csproj.CoreCompileInputs.cache
+E:\hieupv\StudentAPI\StudentAPI\obj\Debug\netcoreapp2.2\StudentAPI.RazorAssemblyInfo.cache
+E:\hieupv\StudentAPI\StudentAPI\obj\Debug\netcoreapp2.2\StudentAPI.RazorAssemblyInfo.cs
+E:\hieupv\StudentAPI\StudentAPI\obj\Debug\netcoreapp2.2\StudentAPI.AssemblyInfoInputs.cache
+E:\hieupv\StudentAPI\StudentAPI\obj\Debug\netcoreapp2.2\StudentAPI.AssemblyInfo.cs
+E:\hieupv\StudentAPI\StudentAPI\obj\Debug\netcoreapp2.2\StudentAPI.RazorTargetAssemblyInfo.cache
+E:\hieupv\StudentAPI\StudentAPI\bin\Debug\netcoreapp2.2\StudentAPI.pdb
+E:\hieupv\StudentAPI\StudentAPI\obj\Debug\netcoreapp2.2\StudentAPI.dll
+E:\hieupv\StudentAPI\StudentAPI\obj\Debug\netcoreapp2.2\StudentAPI.pdb
