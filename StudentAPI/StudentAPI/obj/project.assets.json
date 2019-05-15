@@ -2893,27 +2893,6 @@
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
         }
       },
-      "PagedList/1.16.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/PagedList.dll": {}
-        },
-        "runtime": {
-          "lib/net40/PagedList.dll": {}
-        }
-      },
-      "PagedList.Mvc/4.3.0": {
-        "type": "package",
-        "dependencies": {
-          "PagedList": "1.16.0"
-        },
-        "compile": {
-          "lib/net40/PagedList.Mvc.dll": {}
-        },
-        "runtime": {
-          "lib/net40/PagedList.Mvc.dll": {}
-        }
-      },
       "Remotion.Linq/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -8131,33 +8110,6 @@
         "nuget.frameworks.nuspec"
       ]
     },
-    "PagedList/1.16.0": {
-      "sha512": "MgyrhR2W9viiZivc9K0SBCeVF+Gl0RK+kGi3g/WisziQLv9nAUnOFbXGeG/ezPiQSD55G5C1GjJWi370HRI5TA==",
-      "type": "package",
-      "path": "pagedlist/1.16.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net40/PagedList.dll",
-        "lib/net40/PagedList.xml",
-        "pagedlist.1.16.0.nupkg.sha512",
-        "pagedlist.nuspec"
-      ]
-    },
-    "PagedList.Mvc/4.3.0": {
-      "sha512": "30GafOR9vCLVl+1/5TKHi4k2WclKAzspAuoXamYM4JvGGPpypKpx868USqYl6FMBlWIow5vi/ESpU9dgLQZvyA==",
-      "type": "package",
-      "path": "pagedlist.mvc/4.3.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Content/Content/PagedList.css",
-        "lib/net40/PagedList.Mvc.XML",
-        "lib/net40/PagedList.Mvc.dll",
-        "pagedlist.mvc.4.3.0.nupkg.sha512",
-        "pagedlist.mvc.nuspec"
-      ]
-    },
     "Remotion.Linq/2.2.0": {
       "sha512": "fK/76UmpC0FXBlGDFVPLJHQlDLYnGC+XY3eoDgCgbtrhi0vzbXDQ3n/IYHhqSKqXQfGw/u04A1drWs7rFVkRjw==",
       "type": "package",
@@ -13009,8 +12961,7 @@
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.2.0",
-      "PagedList.Mvc >= 4.3.0"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.2.0"
     ]
   },
   "packageFolders": {
@@ -13074,10 +13025,6 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[2.2.0, )"
-          },
-          "PagedList.Mvc": {
-            "target": "Package",
-            "version": "[4.3.0, )"
           }
         },
         "imports": [
@@ -13087,27 +13034,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'PagedList 1.16.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.2'. This package may not be fully compatible with your project.",
-      "libraryId": "PagedList",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.2"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'PagedList.Mvc 4.3.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.2'. This package may not be fully compatible with your project.",
-      "libraryId": "PagedList.Mvc",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.2"
-      ]
-    }
-  ]
+  }
 }

@@ -1,150 +1,142 @@
 ﻿
 <head>
     <title>Student API</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-debug.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
-    <script src="js/knockout.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="js/knockout.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
 </head>
 
 <body>
-    <div class="topnav"  id="myDIV">
-            <a class="btn" href="#all" data-bind="click: getAll">All Students<span class="sr-only">(current)</span></a>
-            <a class="btn active" href="#active" data-bind="click: getActive">Active</a>
-            <a class="btn" href="#deleted" data-bind="click: getDeleted">Removed</a>
-            <a class="btn" id="Add" data-bind="click: clearFields">New Student</a>
-
-            <div class="search-container">
-                <input id="searchN" type="text" placeholder="Họ tên" />
-                <input id="searchA" type="text" placeholder="Địa chỉ" />
-                <input id="searchD" type="date" placeholder="Ngày sinh" />
-            </div>
+    <div class="topnav" style="color:lightslategrey;margin-left:20px" id="myDIV" >
+        <a id="allStudents" class="btn" href="#all" data-bind="click: getAll">All Students<span class="sr-only">(current)</span></a>
+        <a class="btn active" href="#active" data-bind="click: getActive">Active</a>
+        <a class="btn" href="#deleted" data-bind="click: getDeleted">Removed</a>
+        <h2 style="padding-left:550px;">STUDENT MANAGER</h2>
     </div>
-    <center><h2>STUDENT MANAGER</h2></center>
-    <form id="AddST" class="table table-reponsive" method="post">
-        <div class="row" style="margin-left:250px;">
-            <div class="col-md-4">
-                <input type="text" id="ID" hidden class="form-control" placeholder="Code" data-bind="value: newStudent.Id" />
-                <label>Code View</label>
-                <input type="text" id="code" class="form-control" placeholder="Code" data-bind="value: newStudent.CodeView" />
-                <label>Name</label>
-                <input type="text" id="fullname" onkeyup="checkname()" class="form-control" placeholder="Name" data-bind="value: newStudent.Name" />
-             <!--   <span id="errorname" class="badge badge-danger"></span> -->
-                <label>Sex</label>
-                <select id="sex" class="form-control" data-bind="value: newStudent.Genre">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <label>Date of birth</label>
-                <input type="text" id="dateofbirth" class="form-control" placeholder="Date of birth" data-bind="value: newStudent.BirthDay" />
-                <label>Address</label>
-                <input type="text" id="address" class="form-control" placeholder="Address" data-bind="value: newStudent.Address" />
-                <label>Phone</label>
-                <input type="text" id="phone" class="form-control" placeholder="Phone Number" data-bind="value: newStudent.PhoneNumber" />
-                <label>Class</label>
-                <select id="class1" class="form-control" data-bind="value: newStudent.Class">
-                    <option value="1">CNTT14</option>
-                    <option value="2">CNDL14</option>
-                    <option value="3">HTTT14</option>
-                    <option value="4">ATTT14</option>
-                </select>
+    <div class="container" style="padding-top:10px;">
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content" method="post">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="ID" class="form-control" placeholder="Code" data-bind="value: newStudent.Id" />
+                        <label>Code View</label>
+                        <span id="errorcode" class="badge badge-danger"></span>
+                        <input type="text" id="code" onkeyup="checkcode()" class="form-control" placeholder="Code" data-bind="value: newStudent.CodeView" />
+                        <label>Name</label>
+                        <span id="errorname" class="badge badge-danger"></span>
+                        <input type="text" id="fullname" onkeyup="checkname()" class="form-control" placeholder="Name" data-bind="value: newStudent.Name" />
+
+
+                        <label>Sex</label>
+                        <select id="sex" class="form-control" data-bind="value: newStudent.Genre">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                        <label>Date of birth</label>
+                        <input type="date" id="dateofbirth" class="form-control" placeholder="Date of birth" data-bind="value: newStudent.BirthDay" />
+
+                        <label>Phone</label>
+                        <span id="errorphonenumber" class="badge badge-danger"></span>
+                        <input type="text" id="phonenumber" onkeyup="checksdt()" class="form-control" placeholder="Phone Number" data-bind="value: newStudent.PhoneNumber" />
+                        <label>Address</label>
+                        <input type="text" id="address" class="form-control" placeholder="Address" data-bind="value: newStudent.Address" />
+                        <label>Class</label>
+                        <select id="class1" class="form-control" data-bind="options:classes,optionsValue:'id',optionsText:'name', value: newStudent.Class"></select>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="actionAdd" disabled="disabled" class="btn btn-success btn-sm-block" data-bind="click: AddStudent" data-dismiss="modal">Add student</button>
+                        <button id="actionUpd" class="btn btn-success btn-sm-block" data-bind="click: updateStudent">Update</button>
+                        <button id="actionCancel" type="reset" class="btn btn-warning btn-sm-block"  data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <br />
 
-        <center>
-            <button id="actionAdd" class="btn btn-success btn-sm-block" data-bind="click: AddStudent">Add student</button>
-            <button id="actionUpd" class="btn btn-success btn-sm-block" data-bind="click: updateStudent">Update</button>
-            <button id="actionCancel" type="reset" class="btn btn-warning btn-sm-block">Cancel</button>
-        </center>
-    </form>
-    <!--<form id="UpdateST" class="table table-reponsive" method="put" data-bind="submit: updateStudent">
-        <div class="row" style="margin-left:250px;">
-            <div class="col-md-4">
-                <label>Code</label>
-                <input type="text" id="code1" class="form-control" placeholder="Code" data-bind="value: newStudent.CodeView1" />
-                <label>Name</label>
-                <input type="text" id="name1" class="form-control" placeholder="Name" data-bind="value: newStudent.Name1" />
-                <label>Date of birth</label>
-                <input type="datetime" id="dateofbirth1" class="form-control" placeholder="Date of birth" data-bind="value: newStudent.BirthDay1" />
-                <label>Address</label>
-                <input type="text" id="address1" class="form-control" placeholder="Address" data-bind="value: newStudent.Address1" />
+    </div>
 
-            </div>
-            <div class="col-md-4">
-                <label>Phone</label>
-                <input type="text" id="phone1" class="form-control" placeholder="Phone Number" data-bind="value: newStudent.PhoneNumber1" />
-                <label>Sex</label>
-                <input type="text" id="genre1" class="form-control" placeholder="Sex" data-bind="value: newStudent.Genre1" />
-                <label>Class</label>
-                <select id="class1" class="form-control" >
-                    <option value="CNDL14">CNDL14</option>
-                    <option value="ATTT14">ATTT14</option>
-                    <option value="CDDT14">CDDT14</option>
-                </select>
-            </div>
+    <div class="container" style="padding-top:20px">
+        <!-- Trigger the modal with a button -->
+        <div>
+            <button id="btnAdd" style="float:left;margin-bottom:10px;" class="btn btn-info" data-toggle="modal" data-target="#myModal">New Student</button>
+           
+            <form  style="float:right;margin-bottom:10px;" class="form-inline">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                    <input id="searchN" class="form-control" type="text" placeholder="Họ tên" />
+                </div>                 
+                    <input id="searchA" class="form-control" type="text" placeholder="Địa chỉ" />
+                    <input id="searchD" class="form-control" type="date" placeholder="Ngày sinh" />
+            </form>     
+            
         </div>
-        <br />
         <center>
-            <button id="actionAdd" class="btn btn-success btn-sm-block" type="submit">Update</button>
-            <button id="actionCancel" type="reset" class="btn btn-warning btn-sm-block">Cancel</button>
+            <table id="dataTB" class="table table-striped table-bordered table-condensed table-reponsive">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Sex</th>
+                        <th>Birth Day</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Class </th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: students,classes">
+                    <tr>
+                        <td hidden data-bind="text: id"></td>
+                        <td data-bind="text: codeView"></td>
+                        <td data-bind="text: name"></td>
+                        <td data-bind="text: genre"></td>
+                        <td data-bind="text: formatDay(birthDay)"></td>
+                        <td data-bind="text: phoneNumber"></td>
+                        <td data-bind="text: address"></td>
+                        <td data-bind="text: classesId"></td>
+
+                        <td style="text-align:center">
+                            <button id="updateBT" class="btn btn-primary btn-sm updateBT" data-bind="click: $parent.updateData" data-toggle="modal" data-target="#myModal">Update</button>
+                            <button id="removeBT" class="btn btn-warning btn-sm removeBT" data-bind="click: $parent.removeStudent">Remove</button>
+                            <button id="activeBT" class="btn btn-success btn-sm activeBT" data-bind="click: $parent.acctiveStudent">Active</button>
+                            <button id="deleteBT" class="btn btn-danger btn-sm" data-bind="click: $parent.deleteStudent">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </center>
-    </form>-->
-    <hr />
-    <table class="table table-striped table-bordered table-condensed">
-        <thead>
-            <tr>
-                <th>Mã Sinh Viên</th>
-                <th>Họ Tên</th>
-                <th>Giới tính</th>
-                <th>Ngày Sinh</th>
-                <th>Địa Chỉ</th>
-                <th>SĐT</th>
-                <th>Lớp </th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody data-bind="foreach: students">
-            <tr>
-                <td hidden data-bind="text: id"></td>
-                <td data-bind="text: codeView"></td>
-                <td data-bind="text: name"></td>
-                <td data-bind="text: genre"></td>
-                <td data-bind="text: birthDay"></td>
-                <td data-bind="text: address"></td>
-                <td data-bind="text: phoneNumber"></td>
-                <td data-bind="text: classesId"></td>
-                <td>
-                    <input id="updateBT" type="button" class="btn btn-primary btn-sm" value="Update" data-bind="click: $parent.updateData" />
-                    <input id="removeBT" type="button" class="btn btn-warning btn-sm" value="Remove " data-bind="click: $parent.removeStudent" />
-                    <input id="activeBT" type="button" class="btn btn-success btn-sm" value="Active " data-bind="click: $parent.acctiveStudent" />
-                    <input id="deleteBT" type="button" class="btn btn-danger btn-sm" value="Delete" data-bind="click: $parent.deleteStudent" "   />
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        
 
-    <br />
-    <!-- <input type="button" class="btn btn-default" id="btnGetStudents" value="Refresh" data-bind="click: getAllStudents()" />-->
+        <br />
 
-
+        <!-- <input type="button" class="btn btn-default" id="btnGetStudents" value="Refresh" data-bind="click: getAllStudents()" />-->
+    </div>
+    <!-- Button trigger modal -->
+    
 </body>
 
 
 
 <style>
-    span {
-        margin: 10px;
+    .badge {
+        background-color: #fc6c85;
     }
     * {
         box-sizing: border-box;
@@ -154,7 +146,13 @@
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
     }
+    .searchf{
+        
+    }
+    .searchf input{
+        padding: 10px;
 
+    }
     .topnav a {
         float: left;
         display: block;
@@ -265,4 +263,7 @@
             this.className += " active";
         });
     }
+
+    
+
 </script>

@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StudentAPI.Models;
-using PagedList;
-using PagedList.Mvc;
 
 namespace StudentAPI.Controllers
 {

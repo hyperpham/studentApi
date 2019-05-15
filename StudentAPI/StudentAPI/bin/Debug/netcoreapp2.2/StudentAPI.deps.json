@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "520ae42ca84b3be291a81b36710dfbfdf2d10384"
+    "signature": "b7572ed58a1b744c7e3a8d87688710ec7c96bfdb"
   },
   "compilationOptions": {
     "defines": [
@@ -27,8 +27,7 @@
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.0",
-          "PagedList.Mvc": "4.3.0"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.0"
         },
         "runtime": {
           "StudentAPI.dll": {}
@@ -204,31 +203,6 @@
         },
         "compile": {
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
-        }
-      },
-      "PagedList/1.16.0": {
-        "runtime": {
-          "lib/net40/PagedList.dll": {
-            "assemblyVersion": "1.16.0.0",
-            "fileVersion": "1.16.0.0"
-          }
-        },
-        "compile": {
-          "lib/net40/PagedList.dll": {}
-        }
-      },
-      "PagedList.Mvc/4.3.0": {
-        "dependencies": {
-          "PagedList": "1.16.0"
-        },
-        "runtime": {
-          "lib/net40/PagedList.Mvc.dll": {
-            "assemblyVersion": "4.3.0.0",
-            "fileVersion": "4.3.0.0"
-          }
-        },
-        "compile": {
-          "lib/net40/PagedList.Mvc.dll": {}
         }
       },
       "System.Composition/1.0.31": {
@@ -3646,20 +3620,6 @@
       "sha512": "sha512-qbXaB76XYUVLocLBs8Z9TS/ERGK2wm797feO+0JEPFvT7o7MRadOR77mqaSD4J1k8G+DlZQyq+MlkCuxrkr3ag==",
       "path": "nuget.frameworks/4.7.0",
       "hashPath": "nuget.frameworks.4.7.0.nupkg.sha512"
-    },
-    "PagedList/1.16.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-MgyrhR2W9viiZivc9K0SBCeVF+Gl0RK+kGi3g/WisziQLv9nAUnOFbXGeG/ezPiQSD55G5C1GjJWi370HRI5TA==",
-      "path": "pagedlist/1.16.0",
-      "hashPath": "pagedlist.1.16.0.nupkg.sha512"
-    },
-    "PagedList.Mvc/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-30GafOR9vCLVl+1/5TKHi4k2WclKAzspAuoXamYM4JvGGPpypKpx868USqYl6FMBlWIow5vi/ESpU9dgLQZvyA==",
-      "path": "pagedlist.mvc/4.3.0",
-      "hashPath": "pagedlist.mvc.4.3.0.nupkg.sha512"
     },
     "System.Composition/1.0.31": {
       "type": "package",
