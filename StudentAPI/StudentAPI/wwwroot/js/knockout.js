@@ -8,19 +8,6 @@ var ViewModels = function () {
     var studentsUri = '/api/Students/';
     var classesUri = '/api/Class';
 
-    //function ajaxFunction(uri, method, data) {
-    //    self.error(''); //clear error message
-    //    return $.ajax({
-    //        type: method,
-    //        url: uri,
-    //        dataType: 'json',
-    //        contentType: 'application/json',
-    //        data: data ? JSON.stringify(data) : null
-    //    }).fail(function (jqXHR, textStatus, errorThrown) {
-    //        self.error(errorThrown);
-    //    });
-    //}
-
     function ajaxHelper(uri, method, data) {
         self.error(''); //clear error message
         return $.ajax({
@@ -36,6 +23,7 @@ var ViewModels = function () {
 
     // clear fields
     self.clearFields = function clearFields() {
+
         self.newStudent.CodeView('');
         self.newStudent.Name('');
         self.newStudent.BirthDay('');
@@ -66,6 +54,7 @@ var ViewModels = function () {
         ajaxHelper(studentsUri + "?a=2" + "&searchName=" + $("#searchN").val() + "&searchAdd=" + $("#searchA").val() + "&searchDay=" + $("#searchD").val(), 'GET').done(function (data) {
             self.students(data);
             //$(".abcxyz").css("visibility", "hidden");
+            $(".updateBT").remove();
             $(".removeBT").remove();
             $(".activeBT").remove();
             console.log(data);
@@ -92,6 +81,7 @@ var ViewModels = function () {
         ajaxHelper(studentsUri + "?a=1" + "&isDelete=true" + "&searchName=" + $("#searchN").val() + "&searchAdd=" + $("#searchA").val() + "&searchDay=" + $("#searchD").val(), 'GET').done(function (data) {
             self.students(data);
             //$(".btn-success").css("visibility", "hidden");
+
             $(".removeBT").remove();
             $(".updateBT").remove();
         });
@@ -115,6 +105,12 @@ var ViewModels = function () {
             });
         }     
     }
+    self.newClass = {
+        Id: ko.observable(),
+        CodeView: ko.observable(),
+        Name: ko.observable(),
+        IsDelete: false
+    }
 
     //Data
     self.newStudent = {
@@ -130,6 +126,7 @@ var ViewModels = function () {
     }
     //Create student
     self.AddStudent = function (formElement) {
+        
         var student = {
             CodeView: self.newStudent.CodeView(),
             Name: self.newStudent.Name(),
@@ -195,10 +192,11 @@ var ViewModels = function () {
             })
         } else return getAllStudents();
     }
-    //Get data
+    //Get data to input
     self.updateData = function (item) {
         console.log(formatDay1(item.birthDay));
         console.log(self.newStudent.BirthDay(item.birthDay));
+        document.getElementById("code").disabled = true;
         $("#actionAdd").hide();
         $("#actionUpd").show();
         $("#actionUpd").show();
@@ -211,6 +209,7 @@ var ViewModels = function () {
             self.newStudent.PhoneNumber(item.phoneNumber),
             self.newStudent.Class(item.classesId)
     }
+
     //Update students
     self.updateStudent = function () {
         var student = {
@@ -232,6 +231,8 @@ var ViewModels = function () {
             }
         });
     }
+
+
 };
     
 $(document).ready(function () {
@@ -245,6 +246,7 @@ $(document).ready(function () {
 
 
     $("#btnAdd").click(function () {
+        undisableTxt();
         $("#actionAdd").show();
         $("#actionUpd").hide();
         vm.clearFields();
@@ -284,7 +286,12 @@ $(document).ready(function () {
     });
 });
 
-
+function disableTxt() {
+    document.getElementById("code").disabled = true;
+}
+function undisableTxt() {
+    document.getElementById("code").disabled = false;
+}
 
 function formatDay(birthday) {
     var date = new Date(birthday);
